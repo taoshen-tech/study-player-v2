@@ -1,0 +1,41 @@
+name: StudyPlayer
+options:
+  bundleIdPrefix: com.peilongtang
+  deploymentTarget:
+    iOS: "15.0"
+  xcodeVersion: "16"
+
+packages:
+  KSPlayer:
+    url: https://github.com/kingslay/KSPlayer.git
+    from: "5.6.2"
+
+settingGroups:
+  common:
+    buildSettings:
+      SWIFT_VERSION: "5.9"
+      TARGETED_DEVICE_FAMILY: "1,2"
+      IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+      ENABLE_BITCODE: NO
+      GENERATE_INFOPLIST_FILE: NO
+      INFOPLIST_FILE: Support/Info.plist
+      ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+
+targets:
+  StudyPlayer:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    settings:
+      group: common
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.peilongtang.studyplayer"
+        CURRENT_PROJECT_VERSION: "1"
+        MARKETING_VERSION: "2.0.0"
+    sources:
+      - path: Sources
+      - path: Support
+        buildPhase: none
+    dependencies:
+      - package: KSPlayer
+        product: KSPlayer
