@@ -38,4 +38,4 @@ targets:
         buildPhase: none
     dependencies:
       - package: KSPlayer
-        product: KSPlayer
+        product: KSPlayerUI
